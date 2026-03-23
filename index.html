@@ -5,143 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Warung LENDIR - Premium Access</title>
     <style>
-        /* CSS Reset */
+        /* CSS Dasar & Tema Dark Neon */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        /* General Styles */
         body {
-            background-color: #080808; /* Super dark */
-            color: #e0e0e0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            background-color: #0a0a0a;
+            color: #eee;
+            font-family: 'Inter', sans-serif;
             padding: 20px;
         }
+        .container { max-width: 1100px; margin: 0 auto; text-align: center; }
 
-        /* Container to center content */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        /* Header Section */
-        header {
-            margin-bottom: 50px;
-            padding: 40px 0;
-            border-bottom: 1px solid #1a1a1a;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 0 0 10px #00f2ff; /* Blue Neon */
+        /* Header */
+        header { padding: 60px 0; }
+        header h1 { 
+            font-size: 3rem; 
+            color: #fff; 
+            text-shadow: 0 0 15px #00f2ff; 
             margin-bottom: 10px;
         }
+        header p { color: #888; font-size: 1.1rem; }
 
-        header p {
-            color: #aaaaaa;
-            font-size: 1.1rem;
-        }
-
-        /* Catalog Grid (Responsive) */
+        /* Grid Katalog Harga */
         .catalog {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 80px;
         }
-
-        /* Product Card Styling */
         .card {
-            background-color: #111111;
-            border: 1px solid #222222;
-            border-radius: 12px;
+            background: #151515;
+            border: 1px solid #222;
+            border-radius: 15px;
             padding: 30px;
-            transition: all 0.3s ease;
+            transition: 0.3s;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: #00f2ff;
-            box-shadow: 0 5px 20px rgba(0, 242, 255, 0.2);
+        .card:hover { 
+            border-color: #00f2ff; 
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 242, 255, 0.1);
         }
-
-        .card h2 {
-            font-size: 1.5rem;
-            color: #ffffff;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .card .price {
-            font-size: 2rem;
-            color: #00f2ff; /* Price highlight */
-            font-weight: bold;
-            margin: 15px 0;
-        }
-
-        .card ul {
-            text-align: left;
-            margin-bottom: 25px;
-            list-style: none;
-            color: #cccccc;
-        }
-
-        .card ul li {
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .card ul li::before {
-            content: '✓';
-            color: #00f2ff;
-            position: absolute;
-            left: 0;
-        }
-
-        /* Call to Action Button */
+        .price { font-size: 2.5rem; color: #00f2ff; font-weight: bold; margin: 20px 0; }
         .btn {
-            display: inline-block;
-            width: 100%;
-            padding: 12px;
-            background: transparent;
-            color: #00f2ff;
+            display: block;
+            padding: 15px;
             border: 2px solid #00f2ff;
-            border-radius: 30px;
+            color: #00f2ff;
             text-decoration: none;
-            text-transform: uppercase;
+            border-radius: 50px;
             font-weight: bold;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover { background: #00f2ff; color: #000; box-shadow: 0 0 20px #00f2ff; }
+
+        /* --- BAGIAN PREVIEW BARU --- */
+        .preview-section { margin-top: 50px; padding: 40px 0; border-top: 1px solid #222; }
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .preview-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid #333;
+            background: #111;
+        }
+        .preview-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+            filter: brightness(0.8);
+        }
+        .preview-item:hover img {
+            transform: scale(1.1); /* Efek Zoom */
+            filter: brightness(1);
+        }
+        .preview-label {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            color: #00f2ff;
         }
 
-        .btn:hover {
-            background-color: #00f2ff;
-            color: #080808;
-            box-shadow: 0 0 15px #00f2ff;
-        }
-
-        /* Footer */
-        footer {
-            margin-top: auto;
-            color: #555555;
-            padding: 20px;
-            font-size: 0.9rem;
-        }
-
-        /* Mobile Adjustments */
-        @media (max-width: 600px) {
-            header h1 { font-size: 1.8rem; }
-            .card h2 { font-size: 1.2rem; }
-            .card .price { font-size: 1.6rem; }
-        }
+        footer { margin-top: 100px; color: #444; font-size: 0.8rem; padding-bottom: 40px; }
     </style>
 </head>
 <body>
@@ -149,55 +105,53 @@
 <div class="container">
     <header>
         <h1>WARUNG LENDIR</h1>
-        <p>Akses Premium Group & Channel Terupdate</p>
+        <p>Premium Group & Exclusive Content Access</p>
     </header>
 
     <div class="catalog">
         <div class="card">
-            <div>
-                <h2>Paket VIP 1 Bulan</h2>
-                <div class="price">Rp 50rb</div>
-                <ul>
-                    <li>Akses 1 Bulan Full</li>
-                    <li>Update Harian</li>
-                    <li>Anti Banned</li>
-                    <li>Support 24/7</li>
-                </ul>
-            </div>
-            <a href="https://t.me/belaa?start=order_vip_1bln" class="btn">Beli Sekarang</a>
+            <h2>MONTHLY</h2>
+            <div class="price">50K</div>
+            <p style="margin-bottom:20px;">Akses 30 Hari Penuh</p>
+            <a href="https://t.me/WarungLENDIR_Robot?start=order_1bln" class="btn">GAS ORDER</a>
         </div>
-
-        <div class="card">
-            <div>
-                <h2>Paket VIP 3 Bulan</h2>
-                <div class="price">Rp 120rb</div>
-                <ul>
-                    <li>Akses 3 Bulan Full</li>
-                    <li>Hemat Rp 30rb</li>
-                    <li>Semua Fitur Paket 1</li>
-                    <li>Akses Grup Diskusi</li>
-                </ul>
-            </div>
-            <a href="https://t.me/belaa?start=order_vip_3bln" class="btn">Beli Sekarang</a>
+        <div class="card" style="border-color: #00f2ff;">
+            <h2 style="color:#00f2ff;">LIFETIME</h2>
+            <div class="price">300K</div>
+            <p style="margin-bottom:20px;">Akses Selamanya (No Limit)</p>
+            <a href="https://t.me/WarungLENDIR_Robot?start=order_perm" class="btn" style="background:#00f2ff; color:#000;">GAS ORDER</a>
         </div>
+    </div>
 
-        <div class="card">
-            <div>
-                <h2>Paket Permanen</h2>
-                <div class="price">Rp 300rb</div>
-                <ul>
-                    <li>Akses Selamanya (Lifetime)</li>
-                    <li>Paling Hemat</li>
-                    <li>Semua Fitur Paket 1 & 2</li>
-                    <li>Konten Eksklusif</li>
-                </ul>
+    <div class="preview-section">
+        <h2 style="letter-spacing: 2px;">PREVIEW CONTENT</h2>
+        <p style="color: #666;">Bocoran konten harian dari Group VIP kami</p>
+        
+        <div class="preview-grid">
+            <div class="preview-item">
+                <img src="https://via.placeholder.com/400x600/111111/00f2ff?text=PREVIEW+1" alt="VIP Content">
+                <div class="preview-label">Update Today</div>
             </div>
-            <a href="https://t.me/belaa?start=order_vip_perm" class="btn">Beli Sekarang</a>
+
+            <div class="preview-item">
+                <img src="https://via.placeholder.com/400x600/111111/00f2ff?text=PREVIEW+2" alt="VIP Content">
+                <div class="preview-label">Exclusive</div>
+            </div>
+
+            <div class="preview-item">
+                <img src="https://via.placeholder.com/400x600/111111/00f2ff?text=PREVIEW+3" alt="VIP Content">
+                <div class="preview-label">Member Only</div>
+            </div>
+
+            <div class="preview-item">
+                <img src="http://ibb.co/jZQLMmw5/400x600/111111/00f2ff?text=PREVIEW+4" alt="VIP Content">
+                <div class="preview-label">New Upload</div>
+            </div>
         </div>
     </div>
 
     <footer>
-        &copy; 2024 Warung LENDIR Syndicate. Transaksi Otomatis via Userbot.
+        &copy; 2026 Warung LENDIR - All Rights Reserved.
     </footer>
 </div>
 
